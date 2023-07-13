@@ -4,8 +4,8 @@ from langchain.prompts import PromptTemplate
 
 st.title("🦜🔗 Langchain - Blog Outline Generator App")
 
-openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
-
+# Use the secret value from Streamlit Cloud Secrets
+openai_api_key = st.secrets["OpenAI_API_Key"]  # Replace "OpenAI_API_Key" with the name of your secret
 
 def blog_outline(topic):
     # Instantiate LLM model
@@ -24,6 +24,6 @@ with st.form("myform"):
     topic_text = st.text_input("Enter prompt:", "")
     submitted = st.form_submit_button("Submit")
     if not openai_api_key:
-        st.info("Please add your OpenAI API key to continue.")
+        st.info("Please add your OpenAI API key to the Streamlit Cloud dashboard.")
     elif submitted:
         blog_outline(topic_text)
