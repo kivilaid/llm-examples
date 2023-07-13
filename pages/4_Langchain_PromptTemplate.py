@@ -5,7 +5,7 @@ from langchain.prompts import PromptTemplate
 st.title("🦜🔗 Langchain - Blog Outline Generator App")
 
 # Use the secret value from Streamlit Cloud Secrets
-openai_api_key = st.secrets["OpenAI_API_Key"]  # Replace "OpenAI_API_Key" with the name of your secret
+openai_api_key = st.secrets["OPENAI_API_KEY"]  # Replace "OpenAI_API_Key" with the name of your secret
 
 def blog_outline(topic):
     # Instantiate LLM model
